@@ -1,0 +1,27 @@
+
+version: '3'
+
+tasks:
+  default:
+    name: 'default'
+    description: 'Run dev task'
+    cmds: 
+      - task: dev
+  
+  freeze:
+    name: 'freeze requirements'
+    description: 'Freeze task'
+    cmds: 
+      - pip freeze > requirements.txt
+
+  install:
+    name: 'install requirements'
+    description: 'Install task'
+    cmds: 
+      - pip install -r requirements.txt
+
+  dev:
+    name: 'dev'
+    description: 'Dev task (uvicorn)'
+    cmds: 
+      - uvicorn main:app --reload
